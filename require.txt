@@ -1,0 +1,21 @@
+single page app
+
+Webpack (imports/exports)
+  Babel (что там про конвертирование нового кода в старый)
+  Scss (препроцессор css)
+  Eslint (следит за чистотой кода)
+  2 Modes
+    - Dev Mode
+      - Dev Server, SourceMpas, Eslint, Not minified JS and css      
+    - Prod Mode
+      - Minified code 
+  
+Git (система контроля версий)
+  - production
+    1.0.0
+    0 -----------
+  - development
+    1.0.2
+    1 ------------- + --- Pool Request
+    2 ---------------- | 
+    
