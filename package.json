@@ -1,0 +1,51 @@
+{
+  "name": "excel-course",
+  "version": "1.0.0",
+  "description": "js excel course",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlegRnd/excel-course.git"
+  },
+  "keywords": [
+    "pure",
+    "js",
+    "javascript",
+    "excel"
+  ],
+  "author": "Oleg Zaraychenko <scriptmake@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlegRnd/excel-course/issues"
+  },
+  "homepage": "https://github.com/OlegRnd/excel-course#readme",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.3.1",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.7.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.14.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-loader": "^4.0.2"
+  }
+}
