@@ -1,0 +1,118 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+.excel__table {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $header-height + $toolbar-height + $formula-height;
+
+  padding-bottom: 2px;
+
+  overflow-x: auto;
+
+  // вся строка
+  & .row {
+    display: flex;
+    flex-direction: row; // по умолчанию такое же значение
+    min-height: 20px;
+    height: $row-height;
+    //width: 100%;
+  }
+  // первая ячейка
+  & .row-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: $info-cell-width;
+    height: 100%;
+    border: 1px solid $border-color;
+    background: #f8f9fa;
+    border-top: none;
+  }
+
+  //колонки после первой ячейки
+  & .row-data {
+    display: flex;
+
+    & .column {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      min-width: 40px;
+      width: $cell-width;
+      height: 100%;
+
+      border: 1px solid $border-color;
+      border-top: none;
+      border-left: none;
+      background: #f8f9fa;
+    }
+
+    & .cell {
+      min-width: 40px;
+      width: $cell-width;
+      min-height: 20px;
+      height: 100%;
+
+      border: 1px solid #e2e3e3;
+      border-top: 0;
+      border-left: 0;
+      outline: none;
+      color: #111;
+
+      white-space: nowrap;
+
+      padding: 5px;
+    }
+    & .selected {
+      border: none;
+      outline: 2px solid #3c74ff;
+      z-index: 2;
+    }
+  }
+}
+
+// .excel__table {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: $header-height + $toolbar-height + $formula-height;
+
+//   overflow-x: auto;
+
+//   & .container {
+//     display: flex;
+//     flex-direction: column;
+
+//     & .cell_row {
+//       display: flex;
+
+//       height: $cell-row-height;
+//       width: 100%;
+
+//       align-items: stretch;
+//       flex-wrap: nowrap;
+
+//       & .column {
+//         min-width: 3px;
+//         width: $column-width;
+//         border-bottom: 1px solid $border-color;
+//         border-right: 1px solid $border-color;
+//         padding: 5px 7px 5px;
+//         text-align: left;
+//         outline: none;
+//       }
+//       & .title {
+//         background-color: #dadce0;
+//         text-align: center;
+//         font-size: 12px;
+//       }
+//       & .fixed {
+//         width: $info-cell-width;
+//         text-align: center;
+//       }
+//     }
+//   }
+// }

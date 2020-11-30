@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+.excel__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $header-height;
+
+  padding: 8px 4px 0px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid $border-color;
+
+  & .input {
+    padding: 2px 7px;
+    margin: 0px; //
+    height: 20px; // высота инпута
+    min-width: 1px; // хз зачем это задаётся
+
+    color: black; //
+
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: none;
+
+    font-size: 18px;
+
+    line-height: 22px; // не очень понятно зачем это здесь? это расстояние между строками
+
+    // наведение мышки на инпут
+    &:hover {
+      border: 1px solid $border-color;
+    }
+
+    // щелкнули мышкой на инпуте
+    &:focus {
+      border: 2px solid #1a73e8;
+    }
+  }
+
+  & .button {
+    @include button(red);
+  }
+}

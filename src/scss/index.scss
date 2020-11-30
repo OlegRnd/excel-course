@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import '~normalize.css';
+
+@import 'header';
+@import 'table';
+@import 'toolbar';
+@import 'formula';
+@import 'dashboard';
+
+// обнуление всех отступов
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+// базовые шрифты для страницы
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+.excel {
+  position: relative;
+  color: #888;
+  height: 100%;
+  max-width: 100%;
+
+  font-size: 0.8rem;
+}
