@@ -13,7 +13,8 @@
     "operator-linebreak": "off",
     "no-trailing-spaces": "off",
     "spaced-comment": "off",
-    "indent": "off"
+    "indent": "off",
+    "max-len": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }

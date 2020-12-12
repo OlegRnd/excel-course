@@ -3,11 +3,20 @@ const CODES = {
   Z: 90,
 }
 
-function createRow(columns = '', info = '') {
+function createRow(columns = '', info = 0) {
+  const resize = info
+    ? `<div class="row-resize" data-resize="row">
+    <div class="col-resize-horizontal-bar" data-type="horizontal-bar"></div>  
+  </div>`
+    : ``
+
   return `
-    <div class="row">
-      <div class="row-info">${info}</div>
-      <div class="row-data">
+    <div class="row" data-type="resizable">
+      <div class="row-info" >
+        ${info || ''}
+        ${resize}
+      </div> 
+      <div class="row-data" data-row-number="${info}">
       ${columns}
       </div>
     </div>
@@ -16,13 +25,21 @@ function createRow(columns = '', info = '') {
 
 function toColumn(content = '') {
   return `
-    <div class="column"> ${content}</div>
+    <div class="column" data-type="resizable" data-col="${content}"> 
+      ${content}
+      <div class="col-resize" data-resize="col">
+        <div class="col-resize-vertical-bar" data-type="vertical-bar"></div>
+      </div>
+    </div>
   `
 }
 
-function toCell(content = '') {
+function toCell(content = '', i) {
   return `
-    <div class="cell" contenteditable="true">${content}</div>
+    <div class="cell" contenteditable="true" data-col="${toChar(
+      '',
+      i
+    )}">${content}</div>
   `
 }
 
