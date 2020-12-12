@@ -13,6 +13,7 @@
 
   // вся строка
   & .row {
+    user-select: none;
     display: flex;
     flex-direction: row; // по умолчанию такое же значение
     min-height: 20px;
@@ -21,6 +22,7 @@
   }
   // первая ячейка
   & .row-info {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -36,6 +38,8 @@
     display: flex;
 
     & .column {
+      user-select: none;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -68,51 +72,61 @@
     }
     & .selected {
       border: none;
-      outline: 2px solid #3c74ff;
+      outline: 2px solid $primary-color;
       z-index: 2;
     }
   }
+
+  .col-resize,
+  .row-resize {
+    position: absolute;
+    background-color: $primary-color;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 10;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+    &:active {
+      opacity: 1;
+    }
+
+    .col-resize-vertical-bar,
+    .col-resize-horizontal-bar {
+      position: absolute;
+      z-index: 9;
+      border-top: 1px solid blue;
+      border-left: 1px solid blue;
+    }
+    .col-resize-vertical-bar {
+      margin-left: 2px;
+      margin-right: 2px;
+      margin-top: $row-height;
+    }
+
+    .col-resize-horizontal-bar {
+      margin-bottom: 2px;
+      margin-top: 2px;
+      margin-left: ($info-cell-width);
+    }
+  }
+
+  .col-resize {
+    top: 0;
+    width: 5px;
+    &:hover {
+      cursor: col-resize;
+    }
+  }
+
+  .row-resize {
+    left: 0;
+    height: 4px;
+
+    &:hover {
+      cursor: row-resize;
+    }
+  }
 }
-
-// .excel__table {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: $header-height + $toolbar-height + $formula-height;
-
-//   overflow-x: auto;
-
-//   & .container {
-//     display: flex;
-//     flex-direction: column;
-
-//     & .cell_row {
-//       display: flex;
-
-//       height: $cell-row-height;
-//       width: 100%;
-
-//       align-items: stretch;
-//       flex-wrap: nowrap;
-
-//       & .column {
-//         min-width: 3px;
-//         width: $column-width;
-//         border-bottom: 1px solid $border-color;
-//         border-right: 1px solid $border-color;
-//         padding: 5px 7px 5px;
-//         text-align: left;
-//         outline: none;
-//       }
-//       & .title {
-//         background-color: #dadce0;
-//         text-align: center;
-//         font-size: 12px;
-//       }
-//       & .fixed {
-//         width: $info-cell-width;
-//         text-align: center;
-//       }
-//     }
-//   }
-// }
