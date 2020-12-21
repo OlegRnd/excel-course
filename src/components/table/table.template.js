@@ -23,9 +23,9 @@ function createRow(columns = '', info = 0) {
   `
 }
 
-function toColumn(content = '') {
+function toColumn(content = '', col) {
   return `
-    <div class="column" data-type="resizable" data-col="${content}"> 
+    <div class="column" data-type="resizable" data-col="${col}"> 
       ${content}
       <div class="col-resize" data-resize="col">
         <div class="col-resize-vertical-bar" data-type="vertical-bar"></div>
@@ -34,13 +34,21 @@ function toColumn(content = '') {
   `
 }
 
-function toCell(content = '', i) {
-  return `
-    <div class="cell" contenteditable="true" data-col="${toChar(
-      '',
-      i
-    )}">${content}</div>
-  `
+function toCell(row) {
+  //eslint-disable-next-line
+  return function (content = '', col) {
+    return `
+        <div class="cell" 
+          contenteditable="true"
+          tabindex="1" 
+          data-col="${col}"
+          data-type="cell"
+          data-id="${row}:${col}"
+        >
+            ${content}
+        </div>
+      `
+  }
 }
 
 function toChar(el, index) {
@@ -56,9 +64,9 @@ export function createTable(rowsCount = 17) {
 
   rows.push(createRow(cols))
 
-  for (let i = 0; i < rowsCount; i++) {
-    const cols = new Array(colsCount).fill('').map(toCell).join('')
-    rows.push(createRow(cols, i + 1))
+  for (let row = 0; row < rowsCount; row++) {
+    const cols = new Array(colsCount).fill('').map(toCell(row)).join('')
+    rows.push(createRow(cols, row + 1))
   }
 
   return rows.join('')

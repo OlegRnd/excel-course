@@ -3,12 +3,12 @@ import { $ } from '@core/dom'
 export function tableResizeHandler(event, $root) {
   const $resizer = $(event.target)
   if ($resizer.data.resize == 'col') {
-    const $vertResizer = $resizer.querySelector('[data-type="vertical-bar"]')
+    const $vertResizer = $resizer.find('[data-type="vertical-bar"]')
     const tableHeight = $root.height - $resizer.height - 2
 
     $vertResizer.css({ height: tableHeight + 'px', opacity: 1 })
   } else {
-    const $horResizer = $resizer.querySelector('[data-type="horizontal-bar"]')
+    const $horResizer = $resizer.find('[data-type="horizontal-bar"]')
     const tableWidth = $root.width - $resizer.width - 2
 
     $horResizer.css({ width: tableWidth + 'px', opacity: 1 })
