@@ -18,4 +18,8 @@
   & .button {
     @include button(green);
   }
+
+  .nopointer {
+    pointer-events: none;
+  }
 }

@@ -19,6 +19,10 @@ export class TableSelection {
     return delete this.group[$el.id]
   }
 
+  get selectedIds() {
+    return Object.keys(this.group)
+  }
+
   getSelection() {
     return this.group
   }
@@ -68,6 +72,12 @@ export class TableSelection {
   clearSelection() {
     Object.keys(this.group).forEach((key) => {
       this.reject(this.group[key])
+    })
+  }
+
+  applyStyle(style) {
+    Object.keys(this.group).forEach((key) => {
+      this.group[key].css(style)
     })
   }
 }

@@ -12,9 +12,9 @@ class Dom {
 
     return this.$el.outerHTML.trim()
   }
-  text(text) {
-    if (typeof text === 'string') {
-      this.$el.textContent = text
+  text(txt) {
+    if (typeof txt !== 'undefined') {
+      this.$el.textContent = txt
       return this
     }
     if (this.$el.tagName.toLowerCase() === 'input') {
@@ -23,6 +23,7 @@ class Dom {
       return this.$el.textContent.trim()
     }
   }
+
   append(element) {
     if (element instanceof Dom) {
       element = element.$el
@@ -52,6 +53,15 @@ class Dom {
 
   off(eventType, callback) {
     this.$el.removeEventListener(eventType, callback)
+  }
+
+  attr(name, value) {
+    if (value || value === '') {
+      this.$el.setAttribute(name, value)
+      return this
+    }
+
+    return this.$el.getAttribute(name)
   }
 
   closest(selector) {
@@ -94,6 +104,13 @@ class Dom {
       this.$el.style[key] = styles[key]
     })
     return this
+  }
+
+  getStyles(styles = []) {
+    return styles.reduce((res, style) => {
+      res[style] = this.$el.style[style]
+      return res
+    }, {})
   }
 
   addClass(className) {
