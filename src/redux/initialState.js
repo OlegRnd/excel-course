@@ -1,4 +1,3 @@
-import { storage } from '@core/utils.js'
 import { defaultStyles, tableName } from '../constants'
 
 const defaultState = {
@@ -9,12 +8,13 @@ const defaultState = {
   currentText: '',
   currentStyles: defaultStyles,
   tableName: tableName,
+  lastOpen: new Date().toLocaleString(),
 }
 
 function normalize(state) {
   return { ...state, currentStyles: defaultStyles, currentText: '' }
 }
 
-export const initialState = storage('excel-state')
-  ? normalize(storage('excel-state'))
-  : defaultState
+export function normalizeInitialState(state) {
+  return state ? normalize(state) : { ...defaultState }
+}

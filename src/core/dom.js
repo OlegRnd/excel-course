@@ -12,6 +12,11 @@ class Dom {
 
     return this.$el.outerHTML.trim()
   }
+
+  clear() {
+    this.html('')
+    return this
+  }
   text(txt) {
     if (typeof txt !== 'undefined') {
       this.$el.textContent = txt
