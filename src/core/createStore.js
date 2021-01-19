@@ -12,11 +12,10 @@ export class CreateStore {
 
   subscribe(fn) {
     this.listeners.push(fn)
-    return {
-      unsibscribe() {
-        this.listeners = this.listeners.filter((l) => l !== fn)
-      },
+    const unsubscribe = () => {
+      this.listeners = this.listeners.filter((l) => l !== fn)
     }
+    return { unsubscribe }
   }
 
   getState() {
