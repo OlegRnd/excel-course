@@ -19,6 +19,7 @@ export class CreateStore {
   }
 
   getState() {
-    return JSON.parse(JSON.stringify(this.state))
+    // return JSON.parse(JSON.stringify(this.state))
+    return this.state
   }
 }
